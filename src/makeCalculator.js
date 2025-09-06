@@ -5,15 +5,34 @@
  */
 function makeCalculator() {
   return {
-    add: (current, value) => current + value,
-    subtract: (current, value) => current - value,
-    multiply: (current, value) => current * value,
-    divide: (current, value) => current / value,
-
     result: 0,
 
+    add(value) {
+      this.result += value;
+
+      return this;
+    },
+
+    subtract(value) {
+      this.result -= value;
+
+      return this.result;
+    },
+
+    multiply(value) {
+      this.result *= value;
+
+      return this;
+    },
+
+    divide(value) {
+      this.result /= value;
+
+      return this;
+    },
+
     operate(callback, value) {
-      this.result = callback(this.result, value);
+      callback.call(this, value);
 
       return this;
     },
