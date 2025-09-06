@@ -16,7 +16,7 @@ function makeCalculator() {
     subtract(value) {
       this.result -= value;
 
-      return this.result;
+      return this;
     },
 
     multiply(value) {
